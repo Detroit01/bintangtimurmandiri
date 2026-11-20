@@ -6,12 +6,12 @@
     <!-- Security Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://placehold.co; frame-src https://www.youtube.com https://www.youtube-nocookie.com; media-src 'self'; connect-src 'none'; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://placehold.co; media-src 'self'; connect-src 'none'; frame-ancestors 'none';">
     
     <title>PT BINTANG TIMBUL MANDIRI | GASIFIKASI BATUBARA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Menyembunyikan scrollbar pada menu navbar yang bisa di-slide di HP */
+        /* Menyembunyikan scrollbar pada menu navbar & slider produk */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -75,7 +75,7 @@
                     
                     <!-- Slide 1 -->
                     <div class="slide-item w-full h-full relative">
-                        <img src="assets/foto-batubara/tunnel_kiln_samping.jpeg" alt="Tunnel Kiln Gasifier" class="w-full h-full object-cover">
+                        <img src="PTBTM/assets/foto-batubara/tunnel_kiln_samping.jpeg" alt="Tunnel Kiln Gasifier" class="w-full h-full object-cover">
                         <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-xs sm:text-sm font-medium">
                             Tunnel Kiln Gasifier
                         </div>
@@ -83,7 +83,7 @@
 
                     <!-- Slide 2 -->
                     <div class="slide-item hidden w-full h-full relative">
-                        <img src="assets/foto-batubara/rotary_kiln.jpeg" alt="Rotary Kiln Gasifier" class="w-full h-full object-cover">
+                        <img src="PTBTM/assets/foto-batubara/rotary_kiln.jpeg" alt="Rotary Kiln Gasifier" class="w-full h-full object-cover">
                         <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-xs sm:text-sm font-medium">
                             Rotary Kiln Gasifier
                         </div>
@@ -91,7 +91,7 @@
 
                     <!-- Slide 3 -->
                     <div class="slide-item hidden w-full h-full relative">
-                        <img src="assets/foto-batubara/shuttle_kiln.jpeg" alt="Shuttle Kiln Gasifier" class="w-full h-full object-cover">
+                        <img src="PTBTM/assets/foto-batubara/shuttle_kiln.jpeg" alt="Shuttle Kiln Gasifier" class="w-full h-full object-cover">
                         <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-xs sm:text-sm font-medium">
                             Shuttle Kiln Gasifier
                         </div>
@@ -161,7 +161,7 @@
         <div class="bg-white border border-slate-200 grid lg:grid-cols-12 items-center">
             <!-- Foto Mesin -->
             <div class="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-slate-200 bg-slate-50 p-6 flex items-center justify-center">
-                <img src="assets/foto-batubara/tunnel_kiln_bgputih.jpeg" alt="Tunnel Kiln" class="max-h-80 w-auto object-contain">
+                <img src="PTBTM/assets/foto-batubara/tunnel_kiln_bgputih.jpeg" alt="Tunnel Kiln" class="max-h-80 w-auto object-contain">
             </div>
 
             <!-- Deskripsi Manfaat & Tabel Parameter -->
@@ -173,54 +173,9 @@
                     </p>
 
                     <h4 data-i18n="feat_param_title" class="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Parameter Teknis:</h4>
-                    <table class="w-full text-xs sm:text-sm border-collapse border border-slate-200 mb-6">
-                        <tbody class="divide-y divide-slate-200">
-                            <tr>
-                                <td data-i18n="t_row1_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 w-2/5 border-r border-slate-200">Tipe Gasifikasi</td>
-                                <td class="py-2.5 px-3 font-semibold text-slate-900">01 F-01 | 02 F-02 | 03 F-03</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row2_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Ukuran Gasifikasi</td>
-                                <td data-i18n="t_row2_v" class="py-2.5 px-3 font-semibold text-slate-900">Kecil | Sedang | Besar</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row3_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Ukuran Batubara Yang Digunakan</td>
-                                <td data-i18n="t_row3_v" class="py-2.5 px-3 font-semibold text-slate-900">2 cm sampai 6 cm</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row4_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Kalori Batubara Yang Digunakan</td>
-                                <td data-i18n="t_row4_v" class="py-2.5 px-3 font-semibold text-slate-900">5.800 sampai dengan 6.100</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row5_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Kalori Gas Batubara/Kg</td>
-                                <td class="py-2.5 px-3 font-semibold text-slate-900">3.000 Kcal/Kg</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row6_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Pemakaian Batubara Kg/Jam</td>
-                                <td class="py-2.5 px-3 font-semibold text-slate-900">75–125 | 100–170 | 125–220</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row7_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Gas Batubara Konversi Solar/Jam</td>
-                                <td class="py-2.5 px-3 font-semibold text-slate-900">25–41 | 33–57 | 41–73</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row8_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Pengumpan Batubara</td>
-                                <td data-i18n="t_row8_v" class="py-2.5 px-3 font-semibold text-slate-900">Elektrik</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row9_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Katup Masuk Pengumpan Batubara</td>
-                                <td data-i18n="t_row9_v" class="py-2.5 px-3 font-semibold text-slate-900">Manual / Otomatis</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row10_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Sistem Pembuangan Abu</td>
-                                <td data-i18n="t_row10_v" class="py-2.5 px-3 font-semibold text-slate-900">Elektrik</td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="t_row11_k" class="py-2.5 px-3 bg-slate-50 font-medium text-slate-600 border-r border-slate-200">Perbandingan Solar dengan Batubara</td>
-                                <td data-i18n="t_row11_v" class="py-2.5 px-3 font-semibold text-slate-900">Kalori 1 Liter Solar = 3 Kg Batubara Kalori 5.800</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="border border-slate-200 mb-6 bg-white p-2 overflow-x-auto">
+                        <img src="PTBTM/assets/foto-batubara/tabel_gasifikasi.jpg" alt="Tabel Parameter Teknis Tunnel Kiln" class="w-full h-auto object-contain">
+                    </div>
                 </div>
 
                 <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
@@ -233,18 +188,32 @@
         </div>
     </section>
 
-    <!-- Section 3: Lini Mesin Lainnya & Manfaat Operasionalnya -->
+    <!-- Section 3: Lini Mesin & Manfaat Operasional (5 Produk Slider Kiri-Kanan) -->
     <section id="lini-mesin" class="py-12 px-4 max-w-7xl mx-auto scroll-mt-28 md:scroll-mt-20">
-        <div class="border-b border-slate-300 pb-4 mb-8">
-            <h2 data-i18n="line_title" class="text-2xl font-bold text-slate-900">Lini Mesin & Manfaat Operasional</h2>
-            <p data-i18n="line_sub" class="text-slate-600 text-xs sm:text-sm mt-1">Setiap unit dirancang untuk mendukung kelancaran alur produksi batu bara di lapangan.</p>
+        <div class="border-b border-slate-300 pb-4 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+                <h2 data-i18n="line_title" class="text-2xl font-bold text-slate-900">Lini Mesin & Manfaat Operasional</h2>
+                <p data-i18n="line_sub" class="text-slate-600 text-xs sm:text-sm mt-1">Setiap unit dirancang untuk mendukung kelancaran alur produksi batu bara di lapangan.</p>
+            </div>
+            
+            <!-- Tombol Navigasi Slide Kiri & Kanan -->
+            <div class="flex items-center gap-2 shrink-0">
+                <button id="slide-prod-prev" type="button" aria-label="Geser Kiri" class="p-2 bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 rounded-sm transition cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="slide-prod-next" type="button" aria-label="Geser Kanan" class="p-2 bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 rounded-sm transition cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Track Horizontal Slider (5 Kartu Produk) -->
+        <div id="product-slider" class="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-2">
+            
             <!-- Mesin 1 -->
-            <div class="bg-white border border-slate-200 flex flex-col justify-between">
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
                 <div>
-                    <img src="assets/foto-batubara/burner_api.jpeg" alt="Burner Api" loading="lazy" class="w-full h-48 object-contain bg-slate-100 p-2 border-b border-slate-200">
+                    <img src="PTBTM/assets/foto-batubara/burner_tunnel_kiln.jpeg" alt="Burner Api" loading="lazy" class="w-full h-48 object-contain bg-slate-100 p-2 border-b border-slate-200">
                     <div class="p-5">
                         <h3 data-i18n="m1_title" class="text-base font-bold text-slate-900 mb-2">Burner Api</h3>
                         <p data-i18n-html="m1_desc" class="text-xs text-slate-600 leading-relaxed">
@@ -259,9 +228,9 @@
             </div>
 
             <!-- Mesin 2 -->
-            <div class="bg-white border border-slate-200 flex flex-col justify-between">
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
                 <div>
-                    <img src="assets/foto-batubara/rotary_kiln.jpeg" alt="Rotary Kiln" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
+                    <img src="PTBTM/assets/foto-batubara/rotary_kiln.jpeg" alt="Rotary Kiln" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
                     <div class="p-5">
                         <h3 class="text-base font-bold text-slate-900 mb-2">Rotary Kiln</h3>
                         <p data-i18n-html="m2_desc" class="text-xs text-slate-600 leading-relaxed">
@@ -276,9 +245,9 @@
             </div>
 
             <!-- Mesin 3 -->
-            <div class="bg-white border border-slate-200 flex flex-col justify-between">
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
                 <div>
-                    <img src="assets/foto-batubara/shuttle_kiln.jpeg" alt="Shuttle Kiln" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
+                    <img src="PTBTM/assets/foto-batubara/shuttle_kiln.jpeg" alt="Shuttle Kiln" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
                     <div class="p-5">
                         <h3 class="text-base font-bold text-slate-900 mb-2">Shuttle Kiln</h3>
                         <p data-i18n-html="m3_desc" class="text-xs text-slate-600 leading-relaxed">
@@ -293,9 +262,9 @@
             </div>
 
             <!-- Mesin 4 -->
-            <div class="bg-white border border-slate-200 flex flex-col justify-between">
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
                 <div>
-                    <img src="assets/foto-batubara/burner_kiln_gasifikasi.jpeg" alt="Burner Kiln Gasifikasi" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
+                    <img src="PTBTM/assets/foto-batubara/burner_kiln_gasifikasi.jpeg" alt="Burner Kiln Gasifikasi" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
                     <div class="p-5">
                         <h3 data-i18n="m4_title" class="text-base font-bold text-slate-900 mb-2">Burner Kiln Gasifikasi</h3>
                         <p data-i18n-html="m4_desc" class="text-xs text-slate-600 leading-relaxed">
@@ -308,27 +277,46 @@
                     <a id="wa-m4" href="https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Burner%20Kiln%20Gasifikasi" target="_blank" rel="noopener noreferrer" data-i18n="card_cta" class="text-xs font-bold text-blue-900 hover:underline">Detail & Harga →</a>
                 </div>
             </div>
+
+            <!-- Mesin 5 -->
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <img src="PTBTM/assets/foto-batubara/tunnel_kiln_tampak_sedang.jpeg" alt="Tunnel Kiln" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
+                    <div class="p-5">
+                        <h3 data-i18n="m5_title" class="text-base font-bold text-slate-900 mb-2">Tunnel Kiln</h3>
+                        <p data-i18n-html="m5_desc" class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Manfaat:</strong> Mengonversi batubara padat menjadi gas bakar bersih secara berkelanjutan untuk menyuplai kebutuhan energi pabrik.
+                        </p>
+                    </div>
+                </div>
+                <div class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex justify-between items-center">
+                    <span data-i18n="card_tag" class="text-xs text-slate-500">Tunnel Kiln</span>
+                    <a id="wa-m5" href="https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Tunnel%20Kiln" target="_blank" rel="noopener noreferrer" data-i18n="card_cta" class="text-xs font-bold text-blue-900 hover:underline">Detail & Harga →</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Section 4: Video Operasional / Gallery (#video) -->
+ <!-- Section 4: Video Operasional / Gallery (#video) -->
     <section id="video" class="py-12 bg-white border-t border-slate-200 px-4 scroll-mt-28 md:scroll-mt-20">
         <div class="max-w-4xl mx-auto">
             <h2 data-i18n="vid_title" class="text-xl font-bold text-slate-900 mb-1">Dokumentasi Uji Operasi & Lapangan</h2>
             <p data-i18n="vid_sub" class="text-slate-600 text-xs mb-4">Rekaman aktual pengujian unit di workshop serta operasional di lokasi tambang klien.</p>
             <div class="bg-black border border-slate-300 aspect-video overflow-hidden">
-                <iframe 
-                    class="w-full h-full"
-                    src="https://www.youtube.com/embed/6gKkmg6k0ko" 
-                    title="Dokumentasi Uji Operasi Mesin Gasifikasi Batubara" 
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
+                <video 
+                    controls 
+                    preload="metadata" 
+                    controlsList="nodownload" 
+                    poster="PTBTM/assets/foto-batubara/tunnel_kiln_samping.jpeg" 
+                    class="w-full h-full object-cover">
+                    <source src="PTBTM/assets/foto-batubara/video_gasifikasi_web.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung pemutaran video HTML5.
+                </video>
             </div>
         </div>
     </section>
+
     <!-- Section 5: Kontak & Lokasi Perusahaan (#kontak) -->
     <section id="kontak" class="py-14 px-4 bg-slate-100 border-t border-slate-300 scroll-mt-28 md:scroll-mt-20">
         <div class="max-w-7xl mx-auto">
@@ -422,10 +410,10 @@
         </svg>
     </a>
 
-    <!-- Script Slideshow, Email & Bahasa (ID / EN) -->
+    <!-- Script Slideshow, Product Slider, Email & Bahasa (ID / EN) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Slideshow
+            // 1. Hero Slideshow
             const slides = document.querySelectorAll('.slide-item');
             const nextBtn = document.getElementById('next-slide');
             const prevBtn = document.getElementById('prev-slide');
@@ -458,7 +446,24 @@
                 }, 5000);
             }
 
-            // 2. Proteksi Email dari Bot Scraper
+            // 2. Slider Lini Produk (Geser Kiri & Kanan)
+            const prodSlider = document.getElementById('product-slider');
+            const prodPrev = document.getElementById('slide-prod-prev');
+            const prodNext = document.getElementById('slide-prod-next');
+
+            if (prodSlider && prodPrev && prodNext) {
+                prodNext.addEventListener('click', () => {
+                    const cardWidth = prodSlider.firstElementChild.offsetWidth + 24;
+                    prodSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                });
+
+                prodPrev.addEventListener('click', () => {
+                    const cardWidth = prodSlider.firstElementChild.offsetWidth + 24;
+                    prodSlider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                });
+            }
+
+            // 3. Proteksi Email dari Bot Scraper
             const emailLink = document.getElementById('protected-email');
             if (emailLink) {
                 const emailUser = 'sales';
@@ -467,7 +472,7 @@
                 emailLink.href = `mailto:${emailUser}@${emailDomain}`;
             }
 
-            // 3. Bilingual Dictionary (ID / EN)
+            // 4. Bilingual Dictionary (ID / EN)
             const translations = {
                 id: {
                     page_title: "PT BINTANG TIMBUL MANDIRI | GASIFIKASI BATUBARA",
@@ -497,24 +502,6 @@
                     feat_title: "Mesin Unggulan & Parameter Teknis",
                     feat_benefit: "<strong>Manfaat Operasional:</strong> Mesin yang memproses konversi termokimia dari batubara padat menjadi gas mudah terbakar yang disebut gas sintesis (syngas).",
                     feat_param_title: "Parameter Teknis:",
-                    t_row1_k: "Tipe Gasifikasi",
-                    t_row2_k: "Ukuran Gasifikasi",
-                    t_row2_v: "Kecil | Sedang | Besar",
-                    t_row3_k: "Ukuran Batubara Yang Digunakan",
-                    t_row3_v: "2 cm sampai 6 cm",
-                    t_row4_k: "Kalori Batubara Yang Digunakan",
-                    t_row4_v: "5.800 sampai dengan 6.100",
-                    t_row5_k: "Kalori Gas Batubara/Kg",
-                    t_row6_k: "Pemakaian Batubara Kg/Jam",
-                    t_row7_k: "Gas Batubara Konversi Solar/Jam",
-                    t_row8_k: "Pengumpan Batubara",
-                    t_row8_v: "Elektrik",
-                    t_row9_k: "Katup Masuk Pengumpan Batubara",
-                    t_row9_v: "Manual / Otomatis",
-                    t_row10_k: "Sistem Pembuangan Abu",
-                    t_row10_v: "Elektrik",
-                    t_row11_k: "Perbandingan Solar dengan Batubara",
-                    t_row11_v: "Kalori 1 Liter Solar = 3 Kg Batubara Kalori 5.800",
                     feat_note: "Dimensi & kapasitas dapat disesuaikan kondisi site.",
                     feat_cta: "Minta Spesifikasi & Penawaran",
                     line_title: "Lini Mesin & Manfaat Operasional",
@@ -525,6 +512,8 @@
                     m3_desc: "<strong>Manfaat:</strong> Fleksibel untuk pembakaran sistem batch dengan kontrol temperatur presisi dan efisiensi bahan bakar syngas.",
                     m4_title: "Burner Kiln Gasifikasi",
                     m4_desc: "<strong>Manfaat:</strong> Mengoptimalkan suplai panas langsung ke ruang bakar kiln untuk menekan konsumsi BBM solar secara signifikan.",
+                    m5_title: "Reaktor Gasifikasi Batubara",
+                    m5_desc: "<strong>Manfaat:</strong> Mengonversi batubara padat menjadi gas bakar bersih secara berkelanjutan untuk menyuplai kebutuhan energi pabrik.",
                     card_tag: "Mesin Gasifikasi",
                     card_cta: "Detail & Harga →",
                     vid_title: "Dokumentasi Uji Operasi & Lapangan",
@@ -548,7 +537,8 @@
                     wa_m1_msg: "https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Burner%20Api",
                     wa_m2_msg: "https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Rotary%20Kiln",
                     wa_m3_msg: "https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Shuttle%20Kiln",
-                    wa_m4_msg: "https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Burner%20Kiln%20Gasifikasi"
+                    wa_m4_msg: "https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Burner%20Kiln%20Gasifikasi",
+                    wa_m5_msg: "https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Reaktor%20Gasifikasi%20Batubara"
                 },
                 en: {
                     page_title: "PT BINTANG TIMBUL MANDIRI | COAL GASIFICATION MACHINERY",
@@ -578,24 +568,6 @@
                     feat_title: "Featured Machine & Technical Parameters",
                     feat_benefit: "<strong>Operational Benefit:</strong> A system that performs thermochemical conversion of solid coal into combustible gas known as synthesis gas (syngas).",
                     feat_param_title: "Technical Parameters:",
-                    t_row1_k: "Gasification Type",
-                    t_row2_k: "Gasification Size",
-                    t_row2_v: "Small | Medium | Large",
-                    t_row3_k: "Coal Feed Size",
-                    t_row3_v: "2 cm to 6 cm",
-                    t_row4_k: "Coal Calorific Value",
-                    t_row4_v: "5,800 to 6,100 Kcal",
-                    t_row5_k: "Syngas Calorific Value/Kg",
-                    t_row6_k: "Coal Consumption (Kg/Hour)",
-                    t_row7_k: "Diesel Equivalent Output/Hour",
-                    t_row8_k: "Coal Feeder",
-                    t_row8_v: "Electric",
-                    t_row9_k: "Coal Feeder Inlet Valve",
-                    t_row9_v: "Manual / Automatic",
-                    t_row10_k: "Ash Discharge System",
-                    t_row10_v: "Electric",
-                    t_row11_k: "Diesel to Coal Equivalence",
-                    t_row11_v: "1 Liter Diesel = 3 Kg Coal (5,800 Kcal)",
                     feat_note: "Dimensions & capacity can be customized to site requirements.",
                     feat_cta: "Request Specs & Quotation",
                     line_title: "Machinery Lineup & Operational Benefits",
@@ -606,6 +578,8 @@
                     m3_desc: "<strong>Benefit:</strong> Flexible batch-system firing with precise temperature control and high syngas fuel efficiency.",
                     m4_title: "Gasification Kiln Burner",
                     m4_desc: "<strong>Benefit:</strong> Optimizes direct heat supply into the kiln combustion chamber to significantly reduce diesel fuel consumption.",
+                    m5_title: "Coal Gasification Reactor",
+                    m5_desc: "<strong>Benefit:</strong> Continuously converts solid coal into clean combustible gas to supply industrial plant energy demands.",
                     card_tag: "Gasification Unit",
                     card_cta: "Details & Price →",
                     vid_title: "Operational & Field Test Documentation",
@@ -629,7 +603,8 @@
                     wa_m1_msg: "https://wa.me/62812345678?text=Hello,%20I%20would%20like%20more%20information%20about%20the%20Gas%20Burner.",
                     wa_m2_msg: "https://wa.me/62812345678?text=Hello,%20I%20would%20like%20more%20information%20about%20the%20Rotary%20Kiln.",
                     wa_m3_msg: "https://wa.me/62812345678?text=Hello,%20I%20would%20like%20more%20information%20about%20the%20Shuttle%20Kiln.",
-                    wa_m4_msg: "https://wa.me/62812345678?text=Hello,%20I%20would%20like%20more%20information%20about%20the%20Gasification%20Kiln%20Burner."
+                    wa_m4_msg: "https://wa.me/62812345678?text=Hello,%20I%20would%20like%20more%20information%20about%20the%20Gasification%20Kiln%20Burner.",
+                    wa_m5_msg: "https://wa.me/62812345678?text=Hello,%20I%20would%20like%20more%20information%20about%20the%20Coal%20Gasification%20Reactor."
                 }
             };
 
@@ -662,7 +637,8 @@
                     'wa-m1': dict.wa_m1_msg,
                     'wa-m2': dict.wa_m2_msg,
                     'wa-m3': dict.wa_m3_msg,
-                    'wa-m4': dict.wa_m4_msg
+                    'wa-m4': dict.wa_m4_msg,
+                    'wa-m5': dict.wa_m5_msg
                 };
                 Object.entries(waMap).forEach(([id, url]) => {
                     const el = document.getElementById(id);
