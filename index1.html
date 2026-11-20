@@ -190,16 +190,30 @@
         </div>
     </section>
 
-    <!-- Section 3: Lini Mesin Lainnya & Manfaat Operasionalnya -->
+<!-- Section 3: Lini Mesin & Manfaat Operasional (5 Produk Slider Kiri-Kanan) -->
     <section id="lini-mesin" class="py-12 px-4 max-w-7xl mx-auto scroll-mt-28 md:scroll-mt-20">
-        <div class="border-b border-slate-300 pb-4 mb-8">
-            <h2 data-i18n="line_title" class="text-2xl font-bold text-slate-900">Lini Mesin & Manfaat Operasional</h2>
-            <p data-i18n="line_sub" class="text-slate-600 text-xs sm:text-sm mt-1">Setiap unit dirancang untuk mendukung kelancaran alur produksi batu bara di lapangan.</p>
+        <div class="border-b border-slate-300 pb-4 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+                <h2 data-i18n="line_title" class="text-2xl font-bold text-slate-900">Lini Mesin & Manfaat Operasional</h2>
+                <p data-i18n="line_sub" class="text-slate-600 text-xs sm:text-sm mt-1">Setiap unit dirancang untuk mendukung kelancaran alur produksi batu bara di lapangan.</p>
+            </div>
+            
+            <!-- Tombol Navigasi Slide Kiri & Kanan -->
+            <div class="flex items-center gap-2 shrink-0">
+                <button id="slide-prod-prev" type="button" aria-label="Geser Kiri" class="p-2 bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 rounded-sm transition cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="slide-prod-next" type="button" aria-label="Geser Kanan" class="p-2 bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 rounded-sm transition cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Track Horizontal Slider (5 Kartu Produk) -->
+        <div id="product-slider" class="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-2">
+            
             <!-- Mesin 1 -->
-            <div class="bg-white border border-slate-200 flex flex-col justify-between">
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
                 <div>
                     <img src="PTBTM/assets/foto-batubara/burner_api.jpeg" alt="Burner Api" loading="lazy" class="w-full h-48 object-contain bg-slate-100 p-2 border-b border-slate-200">
                     <div class="p-5">
@@ -216,7 +230,7 @@
             </div>
 
             <!-- Mesin 2 -->
-            <div class="bg-white border border-slate-200 flex flex-col justify-between">
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
                 <div>
                     <img src="PTBTM/assets/foto-batubara/rotary_kiln.jpeg" alt="Rotary Kiln" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
                     <div class="p-5">
@@ -233,7 +247,7 @@
             </div>
 
             <!-- Mesin 3 -->
-            <div class="bg-white border border-slate-200 flex flex-col justify-between">
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
                 <div>
                     <img src="PTBTM/assets/foto-batubara/shuttle_kiln.jpeg" alt="Shuttle Kiln" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
                     <div class="p-5">
@@ -250,7 +264,7 @@
             </div>
 
             <!-- Mesin 4 -->
-            <div class="bg-white border border-slate-200 flex flex-col justify-between">
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
                 <div>
                     <img src="PTBTM/assets/foto-batubara/burner_kiln_gasifikasi.jpeg" alt="Burner Kiln Gasifikasi" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
                     <div class="p-5">
@@ -265,6 +279,24 @@
                     <a id="wa-m4" href="https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Burner%20Kiln%20Gasifikasi" target="_blank" rel="noopener noreferrer" data-i18n="card_cta" class="text-xs font-bold text-blue-900 hover:underline">Detail & Harga →</a>
                 </div>
             </div>
+
+            <!-- Mesin 5 (Produk ke-5) -->
+            <div class="w-[82%] sm:w-[46%] lg:w-[23.5%] shrink-0 snap-start bg-white border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <img src="PTBTM/assets/foto-batubara/tunnel_kiln_samping.jpeg" alt="Coal Gasifier Reactor" loading="lazy" class="w-full h-48 object-cover border-b border-slate-200">
+                    <div class="p-5">
+                        <h3 data-i18n="m5_title" class="text-base font-bold text-slate-900 mb-2">Reaktor Gasifikasi Batubara</h3>
+                        <p data-i18n-html="m5_desc" class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Manfaat:</strong> Mengonversi batubara padat menjadi gas bakar bersih secara berkelanjutan untuk menyuplai kebutuhan energi pabrik.
+                        </p>
+                    </div>
+                </div>
+                <div class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex justify-between items-center">
+                    <span data-i18n="card_tag" class="text-xs text-slate-500">Mesin Gasifikasi</span>
+                    <a id="wa-m5" href="https://wa.me/62812345678?text=Halo,%20saya%20mau%20info%20Reaktor%20Gasifikasi%20Batubara" target="_blank" rel="noopener noreferrer" data-i18n="card_cta" class="text-xs font-bold text-blue-900 hover:underline">Detail & Harga →</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -589,6 +621,24 @@
                     wa_m4_msg: "https://wa.me/62812345678?text=Hello,%20I%20would%20like%20more%20information%20about%20the%20Gasification%20Kiln%20Burner."
                 }
             };
+
+            // 4. Slider Lini Produk (Geser Kiri & Kanan)
+            const prodSlider = document.getElementById('product-slider');
+            const prodPrev = document.getElementById('slide-prod-prev');
+            const prodNext = document.getElementById('slide-prod-next');
+
+            if (prodSlider && prodPrev && prodNext) {
+                prodNext.addEventListener('click', () => {
+                    const cardWidth = prodSlider.firstElementChild.offsetWidth + 24;
+                    prodSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                });
+
+                prodPrev.addEventListener('click', () => {
+                    const cardWidth = prodSlider.firstElementChild.offsetWidth + 24;
+                    prodSlider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                });
+            }
+            
 
             let currentLang = localStorage.getItem('btm_lang') || 'id';
             const langToggleBtn = document.getElementById('lang-toggle');
