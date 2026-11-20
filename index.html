@@ -132,7 +132,7 @@
         </div>
     </section>
 
-  <!-- Section 2: Mesin Gasifikasi Batubara (Coal Gasifier) (#gasifikasi) -->
+    <!-- Section 2: Mesin Gasifikasi Batubara (Coal Gasifier) (#gasifikasi) -->
     <section id="gasifikasi" class="py-10 px-4 max-w-7xl mx-auto scroll-mt-28 md:scroll-mt-20">
         <div class="mb-6">
             <span data-i18n="feat_badge" class="text-xs font-bold text-blue-900 uppercase tracking-wider block mb-1">Unit Utama</span>
@@ -152,7 +152,7 @@
             <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between">
                 <div>
                     <div class="border border-slate-200 mb-6 bg-white p-2 overflow-x-auto">
-                        <img src="assets/foto-batubara/parameter_teknis_batubara_gasifikasi.jpg" alt="Tabel Parameter Teknis Gasifikasi" class="w-full h-auto object-contain">
+                        <img id="feat-param-img" src="assets/foto-batubara/parameter_teknis_batubara_gasifikasi.jpg" alt="Tabel Parameter Teknis Gasifikasi" class="w-full h-auto object-contain">
                     </div>
                 </div>
 
@@ -466,8 +466,9 @@
                     prof_p3: "<strong>Manfaat Menggunakan Gasifikasi Batubara</strong> <br>1. Kemandirian energi bahan bakar tanpa ketergantungan pada minyak bumi atau gas alam. <br>2. Memberikan efisiensi biaya bahan bakar yang lebih murah dibandingkan dengan minyak bumi atau gas alam. <br>3. Dapat digunakan untuk berbagai kebutuhan bahan bakar industri, di antaranya: <strong>Keramik, Genteng, Batu Bata Merah, Batu Tahan Api [Refractory], Boiler, Rotary Kiln, Tunnel Kiln, Shuttle Kiln dan Peleburan Logam.</strong>",
                     feat_badge: "Unit Utama",
                     feat_title: "Mesin Gasifikasi Batubara [Coal Gasifier]",
+                    feat_highlight: "\"Melalui teknologi konversi solar ke gasifikasi batubara dapat mencapai efisiensi biaya energi hingga 40%–60%\"",
                     feat_param_title: "PARAMETER TEKNIS:",
-                    feat_highlight: "Melalui teknologi konversi solar ke gasifikasi batubara dapat mencapai efisiensi biaya energi hingga 40%–60%",
+                    feat_param_img: "assets/foto-batubara/tabel_gasifikasi.jpg",
                     feat_note: "Dimensi & kapasitas dapat disesuaikan kondisi site.",
                     feat_cta: "Minta Spesifikasi & Penawaran",
                     line_title: "Lini Mesin Produksi",
@@ -515,8 +516,9 @@
                     prof_p3: "<strong>Benefits of Using Coal Gasification</strong> <br>1. Fuel energy independence without reliance on petroleum or natural gas. <br>2. Delivers lower fuel cost efficiency compared to petroleum or natural gas. <br>3. Applicable for various industrial fuel needs, including: <strong>Ceramics, Roof Tiles, Red Bricks, Refractory Bricks, Boilers, Rotary Kilns, Tunnel Kilns, Shuttle Kilns, and Metal Smelting.</strong>",
                     feat_badge: "Main Unit",
                     feat_title: "Coal Gasifier Machine [Coal Gasifier]",
+                    feat_highlight: "\"Through diesel-to-coal gasification conversion technology, energy cost efficiency of up to 40%–60% can be achieved\"",
                     feat_param_title: "TECHNICAL PARAMETERS:",
-                    feat_highlight: "Through diesel-to-coal gasification conversion technology, energy cost efficiency of up to 40%–60% can be achieved",
+                    feat_param_img: "assets/foto-batubara/tabel_gasifikasi_en.jpg",
                     feat_note: "Dimensions & capacity can be customized to site requirements.",
                     feat_cta: "Request Specs & Quotation",
                     line_title: "Machinery Lineup",
@@ -567,6 +569,12 @@
                     const key = el.getAttribute('data-i18n-html');
                     if (dict[key]) el.innerHTML = dict[key];
                 });
+
+                // Update gambar tabel parameter sesuai bahasa aktif
+                const paramImg = document.getElementById('feat-param-img');
+                if (paramImg && dict.feat_param_img) {
+                    paramImg.src = dict.feat_param_img;
+                }
 
                 // Update link pesan otomatis WhatsApp sesuai bahasa aktif
                 const waMap = {
