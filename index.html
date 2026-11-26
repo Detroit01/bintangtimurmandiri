@@ -459,11 +459,11 @@
                 emailLink.href = `mailto:${emailUser}@${emailDomain}`;
             }
 
-            // 4. API Counter Gratis (Start Awal 230 & Nambah +5 Setiap Kunjungan/Refresh)
+            // 4. API Counter Gratis (Start Awal 165 & Nambah +1h hhhhh Setiap Kunjungan/Refresh)
             const viewCounterEl = document.getElementById('view-counter');
             if (viewCounterEl) {
-                const startOffset = 230;
-                const stepIncrement = 5;
+                const startOffset = 165;
+                const stepIncrement = 1;
                 const counterKey = 'btm-gasifikasi-views-2026';
 
                 fetch(`https://countapi.mileshilliard.com/api/v1/hit/${counterKey}`, {
@@ -481,7 +481,7 @@
                         localStorage.setItem('btm_last_views', String(totalViews));
                     })
                     .catch(() => {
-                        // Jika diblokir AdBlocker/offline, tetap naikkan +5 dari cache lokal agar tidak macet
+                        // Jika diblokir AdBlocker/offline, tetap naikkan +1 dari cache lokal agar tidak macet
                         const prev = parseInt(localStorage.getItem('btm_last_views') || String(startOffset), 10);
                         const nextVal = prev + stepIncrement;
                         viewCounterEl.textContent = nextVal.toLocaleString('en-US');
