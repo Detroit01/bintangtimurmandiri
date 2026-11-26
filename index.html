@@ -459,38 +459,36 @@
                 emailLink.href = `mailto:${emailUser}@${emailDomain}`;
             }
 
-            // 4. API Counter Gratis (CounterAPI v1)
+            // 4. API Counter Gratis (Start Awal 230 & Nambah +5 Setiap Kunjungan/Refresh)
             const viewCounterEl = document.getElementById('view-counter');
             if (viewCounterEl) {
+                const startOffset = 230; // Angka start awal
+                const stepIncrement = 5; // Nambah +5 setiap kali dibuka/refresh
                 const namespace = 'pt-bintang-timbul-mandiri';
-                const counterKey = 'company-profile-views';
-                const sessionFlag = 'btm_session_counted';
-                const hasCounted = sessionStorage.getItem(sessionFlag);
+                const counterKey = 'company-profile-v2';
 
-                // Jika sesi baru gunakan /up (tambah 1), jika refresh cukup baca angka terakhir
-                const endpoint = hasCounted
-                    ? `https://api.counterapi.dev/v1/${namespace}/${counterKey}`
-                    : `https://api.counterapi.dev/v1/${namespace}/${counterKey}/up`;
-
-                fetch(endpoint)
+                // Langsung panggil /up dengan cache: 'no-store' agar Vercel tidak menyimpan cache lama
+                fetch(`https://api.counterapi.dev/v1/${namespace}/${counterKey}/up`, {
+                    cache: 'no-store'
+                })
                     .then(res => {
                         if (!res.ok) throw new Error('Counter API error');
                         return res.json();
                     })
                     .then(data => {
-                        const count = typeof data.count === 'number' ? data.count : 125;
-                        viewCounterEl.textContent = count.toLocaleString('en-US');
-                        localStorage.setItem('btm_last_views', count);
-                        if (!hasCounted) {
-                            sessionStorage.setItem(sessionFlag, 'true');
-                        }
+                        const rawHits = typeof data.count === 'number' ? data.count : 0;
+                        // Hitung: 230 + (jumlah hit * 5) -> akses ke-1 jadi 235, ke-2 jadi 240, dst.
+                        const totalViews = startOffset + (rawHits * stepIncrement);
+                        viewCounterEl.textContent = totalViews.toLocaleString('en-US');
+                        localStorage.setItem('btm_last_views', totalViews);
                     })
                     .catch(() => {
-                        // Fallback jika offline
-                        const cached = parseInt(localStorage.getItem('btm_last_views') || '125', 10);
+                        // Fallback jika offline atau terblokir adblocker
+                        const cached = parseInt(localStorage.getItem('btm_last_views') || String(startOffset), 10);
                         viewCounterEl.textContent = cached.toLocaleString('en-US');
                     });
             }
+            
 
             // 5. Bilingual Dictionary (ID / EN)
             const translations = {
