@@ -459,14 +459,21 @@
                 emailLink.href = `mailto:${emailUser}@${emailDomain}`;
             }
 
-            // 4. API Counter Gratis (Start Awal 165 & Nambah +1h hhhhh Setiap Kunjungan/Refresh)
+            // 4. API Counter Gratis (Start Awal 165 & Nambah +1 per Sesi Buka Web, Anti-Spam Refresh)
             const viewCounterEl = document.getElementById('view-counter');
             if (viewCounterEl) {
                 const startOffset = 165;
                 const stepIncrement = 1;
-                const counterKey = 'btm-gasifikasi-views-2026';
+                const counterKey = 'btm-gasifikasi-views-v2';
+                const sessionFlag = 'btm_session_counted_v2';
+                const hasCounted = sessionStorage.getItem(sessionFlag);
 
-                fetch(`https://countapi.mileshilliard.com/api/v1/hit/${counterKey}`, {
+                // Jika sesi baru buka web gunakan /hit/ (nambah +1), jika refresh cukup /get/ (baca angka terakhir)
+                const endpoint = hasCounted
+                    ? `https://countapi.mileshilliard.com/api/v1/get/${counterKey}`
+                    : `https://countapi.mileshilliard.com/api/v1/hit/${counterKey}`;
+
+                fetch(endpoint, {
                     cache: 'no-store'
                 })
                     .then(res => {
@@ -474,22 +481,24 @@
                         return res.json();
                     })
                     .then(data => {
-                        // Ambil nilai dari API (bisa berupa string atau number)
                         const rawHits = parseInt(data.value ?? data.count ?? '0', 10);
                         const totalViews = startOffset + (rawHits * stepIncrement);
                         viewCounterEl.textContent = totalViews.toLocaleString('en-US');
-                        localStorage.setItem('btm_last_views', String(totalViews));
+                        localStorage.setItem('btm_last_views_v2', String(totalViews));
+                        if (!hasCounted) {
+                            sessionStorage.setItem(sessionFlag, 'true');
+                        }
                     })
                     .catch(() => {
-                        // Jika diblokir AdBlocker/offline, tetap naikkan +1 dari cache lokal agar tidak macet
-                        const prev = parseInt(localStorage.getItem('btm_last_views') || String(startOffset), 10);
-                        const nextVal = prev + stepIncrement;
+                        const prev = parseInt(localStorage.getItem('btm_last_views_v2') || String(startOffset), 10);
+                        const nextVal = hasCounted ? prev : prev + stepIncrement;
                         viewCounterEl.textContent = nextVal.toLocaleString('en-US');
-                        localStorage.setItem('btm_last_views', String(nextVal));
+                        localStorage.setItem('btm_last_views_v2', String(nextVal));
+                        if (!hasCounted) {
+                            sessionStorage.setItem(sessionFlag, 'true');
+                        }
                     });
-            
             }
-            
 
             // 5. Bilingual Dictionary (ID / EN)
             const translations = {
@@ -667,3 +676,4 @@
     </script>
 </body>
 </html>
+```[cite: 9]   
