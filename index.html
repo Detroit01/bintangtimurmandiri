@@ -6,7 +6,7 @@
     <!-- Security Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://placehold.co; media-src 'self'; connect-src 'self' https://api.counterapi.dev; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://placehold.co; media-src 'self'; connect-src 'self' https://countapi.mileshilliard.com https://api.counterapi.dev; frame-ancestors 'none';">
     
     <title>PT BINTANG TIMBUL MANDIRI | GASIFIKASI BATUBARA</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -462,31 +462,32 @@
             // 4. API Counter Gratis (Start Awal 230 & Nambah +5 Setiap Kunjungan/Refresh)
             const viewCounterEl = document.getElementById('view-counter');
             if (viewCounterEl) {
-                const startOffset = 230; // Angka start awal
-                const stepIncrement = 5; // Nambah +5 setiap kali dibuka/refresh
-                const namespace = 'pt-bintang-timbul-mandiri';
-                const counterKey = 'company-profile-v2';
+                const startOffset = 230;
+                const stepIncrement = 5;
+                const counterKey = 'btm-gasifikasi-views-2026';
 
-                // Langsung panggil /up dengan cache: 'no-store' agar Vercel tidak menyimpan cache lama
-                fetch(`https://api.counterapi.dev/v1/${namespace}/${counterKey}/up`, {
+                fetch(`https://countapi.mileshilliard.com/api/v1/hit/${counterKey}`, {
                     cache: 'no-store'
                 })
                     .then(res => {
-                        if (!res.ok) throw new Error('Counter API error');
+                        if (!res.ok) throw new Error('API Error');
                         return res.json();
                     })
                     .then(data => {
-                        const rawHits = typeof data.count === 'number' ? data.count : 0;
-                        // Hitung: 230 + (jumlah hit * 5) -> akses ke-1 jadi 235, ke-2 jadi 240, dst.
+                        // Ambil nilai dari API (bisa berupa string atau number)
+                        const rawHits = parseInt(data.value ?? data.count ?? '0', 10);
                         const totalViews = startOffset + (rawHits * stepIncrement);
                         viewCounterEl.textContent = totalViews.toLocaleString('en-US');
-                        localStorage.setItem('btm_last_views', totalViews);
+                        localStorage.setItem('btm_last_views', String(totalViews));
                     })
                     .catch(() => {
-                        // Fallback jika offline atau terblokir adblocker
-                        const cached = parseInt(localStorage.getItem('btm_last_views') || String(startOffset), 10);
-                        viewCounterEl.textContent = cached.toLocaleString('en-US');
+                        // Jika diblokir AdBlocker/offline, tetap naikkan +5 dari cache lokal agar tidak macet
+                        const prev = parseInt(localStorage.getItem('btm_last_views') || String(startOffset), 10);
+                        const nextVal = prev + stepIncrement;
+                        viewCounterEl.textContent = nextVal.toLocaleString('en-US');
+                        localStorage.setItem('btm_last_views', String(nextVal));
                     });
+            
             }
             
 
