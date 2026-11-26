@@ -6,7 +6,7 @@
     <!-- Security Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://placehold.co; media-src 'self'; connect-src 'none'; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://placehold.co; media-src 'self'; connect-src 'self' https://api.counterapi.dev; frame-ancestors 'none';">
     
     <title>PT BINTANG TIMBUL MANDIRI | GASIFIKASI BATUBARA</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -56,9 +56,24 @@
                 <h1 data-i18n="hero_title" class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-4">
                     Kemandirian Industri Manufaktur dalam Memproduksi Bahan Bakar
                 </h1>
-                <p data-i18n="hero_desc" class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                <p data-i18n="hero_desc" class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
                     PT BINTANG TIMBUL MANDIRI adalah perusahaan manufaktur yang memiliki pengalaman bertahun-tahun dalam bidang gasifikasi batubara.
                 </p>
+
+                <!-- Kotak Statistik Total Views (API Counter Gratis) -->
+                <div class="inline-flex items-center gap-3 bg-slate-100 border border-slate-300 px-4 py-2.5 rounded-sm mb-6">
+                    <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center shrink-0">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <span id="view-counter" class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">...</span>
+                        <span data-i18n="hero_views" class="text-xs sm:text-sm font-semibold text-slate-600">Total Dilihat</span>
+                    </div>
+                </div>
+
                 <div class="flex flex-wrap gap-3">
                     <a href="#profil" data-i18n="hero_btn1" class="bg-blue-900 text-white font-semibold px-5 py-2.5 rounded-sm hover:bg-blue-800 transition text-sm">
                         Tentang Perusahaan
@@ -382,7 +397,7 @@
         </svg>
     </a>
 
-    <!-- Script Slideshow, Product Slider, Email & Bahasa (ID / EN) -->
+    <!-- Script Slideshow, Product Slider, Email, API Counter & Bahasa (ID / EN) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // 1. Hero Slideshow
@@ -444,7 +459,40 @@
                 emailLink.href = `mailto:${emailUser}@${emailDomain}`;
             }
 
-            // 4. Bilingual Dictionary (ID / EN)
+            // 4. API Counter Gratis (CounterAPI v1)
+            const viewCounterEl = document.getElementById('view-counter');
+            if (viewCounterEl) {
+                const namespace = 'pt-bintang-timbul-mandiri';
+                const counterKey = 'company-profile-views';
+                const sessionFlag = 'btm_session_counted';
+                const hasCounted = sessionStorage.getItem(sessionFlag);
+
+                // Jika sesi baru gunakan /up (tambah 1), jika refresh cukup baca angka terakhir
+                const endpoint = hasCounted
+                    ? `https://api.counterapi.dev/v1/${namespace}/${counterKey}`
+                    : `https://api.counterapi.dev/v1/${namespace}/${counterKey}/up`;
+
+                fetch(endpoint)
+                    .then(res => {
+                        if (!res.ok) throw new Error('Counter API error');
+                        return res.json();
+                    })
+                    .then(data => {
+                        const count = typeof data.count === 'number' ? data.count : 125;
+                        viewCounterEl.textContent = count.toLocaleString('en-US');
+                        localStorage.setItem('btm_last_views', count);
+                        if (!hasCounted) {
+                            sessionStorage.setItem(sessionFlag, 'true');
+                        }
+                    })
+                    .catch(() => {
+                        // Fallback jika offline
+                        const cached = parseInt(localStorage.getItem('btm_last_views') || '125', 10);
+                        viewCounterEl.textContent = cached.toLocaleString('en-US');
+                    });
+            }
+
+            // 5. Bilingual Dictionary (ID / EN)
             const translations = {
                 id: {
                     page_title: "PT BINTANG TIMBUL MANDIRI | GASIFIKASI BATUBARA",
@@ -457,6 +505,7 @@
                     hero_badge: "Company Profile",
                     hero_title: "Kemandirian Industri Manufaktur dalam Memproduksi Bahan Bakar",
                     hero_desc: "PT BINTANG TIMBUL MANDIRI adalah perusahaan manufaktur yang memiliki pengalaman bertahun-tahun dalam bidang gasifikasi batubara.",
+                    hero_views: "Total Dilihat",
                     hero_btn1: "Tentang Perusahaan",
                     hero_btn2: "Mesin Gasifikasi",
                     prof_badge: "Profil Perusahaan",
@@ -507,6 +556,7 @@
                     hero_badge: "Company Profile",
                     hero_title: "Coal Gasification Machine for Industrial Fuel Independence",
                     hero_desc: "PT BINTANG TIMBUL MANDIRI is a manufacturing company with years of experience in coal gasification.",
+                    hero_views: "Total Views",
                     hero_btn1: "About Company",
                     hero_btn2: "Coal Gasifier",
                     prof_badge: "Company Profile",
